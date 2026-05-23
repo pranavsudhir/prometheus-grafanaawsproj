@@ -47,34 +47,34 @@ terraform-monitoring/
 ## 🚀 Deployment Steps
 
 ### 1. Initialize Terraform
-terraform init
-2. Validate Configuration
-terraform plan
-3. Deploy Infrastructure
-terraform apply
-Type:yes
-🌐 Access Services
+-terraform init
+-2. Validate Configuration
+-terraform plan
+-3. Deploy Infrastructure
+-terraform apply
+-Type:yes
+-🌐 Access Services
 
-Grafana:
-http://<PUBLIC_IP>:3000
-Login: admin / admin
+-Grafana:
+-http://<PUBLIC_IP>:3000
+-Login: admin / admin
 
-Prometheus:
-http://<PUBLIC_IP>:9090
- Grafana Setup
-Go to Connections → Data Sources
-Add Prometheus
-URL:
-http://<PUBLIC_IP>:9090
-Click Save & Test
-📥 Import Dashboard
-Go to Dashboards → Import
-Enter ID: 1860
-Select Prometheus
-Click Import
-📈 Metrics Displayed
-CPU Usage
-Memory Usage
-Disk Usage
-Network Traffic
-System Uptime
+-Prometheus:
+-http://<PUBLIC_IP>:9090
+ -Grafana Setup
+-Go to Connections → Data Sources
+-Add Prometheus
+-URL:
+-http://<PUBLIC_IP>:9090
+-Click Save & Test
+-📥 Import Dashboard
+-Go to Dashboards → Import
+-Enter ID: 1860
+-Select Prometheus
+-Click Import
+-📈 Metrics Displayed
+-CPU Usage
+-Memory Usage
+-Disk Usage
+-Network Traffic
+-System Uptime
