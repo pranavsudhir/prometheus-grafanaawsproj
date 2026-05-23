@@ -2,6 +2,21 @@ provider "aws" {
   region = "ap-south-1"
 }
 
+variable "key_name" {
+  description = "AWS key pair name"
+  type        = string
+}
+
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["099720109477"]
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-*"]
+  }
+}
+
 resource "aws_security_group" "monitoring_sg" {
   name = "monitoring-sg"
 
@@ -42,12 +57,12 @@ resource "aws_security_group" "monitoring_sg" {
 }
 
 resource "aws_instance" "monitoring_server" {
-  ami           = "ami-0f58b397bc5c1f2e8"
+  ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 
   security_groups = [aws_security_group.monitoring_sg.name]
 
-  key_name = "key1"
+  key_name = var.key_name
 
   user_data = <<-EOF
               #!/bin/bash
